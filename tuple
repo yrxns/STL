@@ -1,0 +1,33 @@
+tuple
+
+#include <tuple>
+
+操作                                                影响
+
+tuple<T1, T2, ..., Tn> t                            以各元素类型的default构造函数完成初始化（基础类型的初值将是0）
+tuple<T1, T2, ..., Tn> t(v1, v2, ..., vn)
+tuple<T1, T2> t(p)                                  以pair p为初值(类型必须吻合)
+
+t = t2
+t = p                                               将pair p赋值给一个带两个元素的tuple
+
+t1 == t2
+t1 != t2
+t1 < t2
+t1 > t2
+t1 <= t2
+t1 >= t2
+
+t1.swap(t2)
+swap(t1, t2)
+make_tuple(v1, v2, ...)                             以传入的所有数值和类型建立一个tuple，并允许由此tuple提取数值
+tie(ref1, ref2, ...)                                建立一个由 reference 构成的tuple，并允许由此tuple提取个别数值
+
+
+
+std::tuple <int, float, std::string> t(33, 3.3, "yrxns");
+int i;
+float f;
+std::string s;
+std::make_tuple(std::ref(i), std::ref(f), std::ref(s)) = t;
+std::tie(i, std::ignore, s) = t;
