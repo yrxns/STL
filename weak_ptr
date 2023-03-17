@@ -1,0 +1,20 @@
+weak_ptr
+
+#include <memory>
+
+操作                                                影响
+weak_ptr<T> wp                                      default构造函数，建立一个empty weak pointer
+weak_ptr<T> wp(sp)
+weak_ptr<T> wp(wp2)
+
+wp.~weak_ptr()                                      析构函数，销毁weak pointer但不影响它所拥有的对象
+wp = wp2                                            赋值(此后wp将共享wp2的拥有权，放弃其先前拥有的对象的拥有权)
+wp = sp
+wp.swap(wp2)
+swap(wp1, wp2)
+
+wp.reset()                                          放弃拥有权并重新初始化weak pointer
+
+wp.use_count()                                      返回拥有者的数量(shared_ptr拥有对象)，如果weak pointer是empty则返回0
+wp.expired()                                        返回wp是否为空(等价于wp.use_count() == 0但也许较快)
+wp.lock()                                           返回一个shared pointer，共享被weak_pointer拥有的pointer的拥有权(如果是none则返回一个empty shared pointer)

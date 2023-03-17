@@ -1,0 +1,38 @@
+unique_ptr
+
+#include <memory>
+
+操作                                                影响
+unique_ptr<T> up                                    default构造函数，建立一个empty unique pointer，使用default deleter
+unique_ptr<T> up(ptr)
+unique_ptr<T> up(ptr, del)                          使用 del 作为deleter
+unique_ptr<T> up(nullptr)
+
+unique_ptr<T> up(move(up2))                         建立一个 unique pointer，拥有up2先前拥有的pointer(此后up2将为empty)
+
+up.~unique_ptr()                                    析构函数，调用deleter
+up = move(up2)                                      up2将拥有权移交给up
+up = nullptr                                        置空
+
+up1.swap(up2)                                       置换up1和up2的pointer和deleter
+swap(up1, up2)
+
+up.reset()                                          对一个被拥有物调用deleter，并令为空(等价于up = nullptr)
+up.reset(ptr)
+
+up.release()                                        放弃拥有权，将拥有权交给调用者(也就是说，返回被拥有物且不调用其deleter)
+
+up.get()                                            返回存储的pointer(若不拥有对象则返回nullptr)
+*up                                                 如果为空，行为不确定
+up->...
+up[idx]                                             只作用于array对象；返回被存储的array内索引为idx的元素(如果none则行为不确定)
+
+if (up)
+up1 == up2
+up1 != up2
+up1 < up2
+up1 <= up2
+up1 > up2
+up1 >= up2
+
+up.get_deleter(up)                                     返回deleter的地址(如果有的话), 否则返回nullptr

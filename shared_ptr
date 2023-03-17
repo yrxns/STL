@@ -1,0 +1,53 @@
+shared_ptr
+
+#include <memory>
+
+操作                                                影响
+shared_ptr<T> sp                                    default构造函数，建立一个empty shared pointer，使用default deleter
+shared_ptr<T> sp(ptr)
+shared_ptr<T> sp(ptr, del)                          使用 del 作为deleter
+shared_ptr<T> sp(ptr, del, ac)                      以ac为allocator
+shared_ptr<T> sp(nullptr)
+shared_ptr<T> sp(nullptr, del)                      使用 del 作为deleter
+shared_ptr<T> sp(nullptr, del, ac)                  以ac为allocator
+
+shared_ptr<T> sp(sp2)                               建立一个 shared pointer，与sp2共享拥有权
+shared_ptr<T> sp(move(sp2))                         建立一个 shared pointer，拥有sp2先前拥有的pointer(此后sp2将为empty)
+shared_ptr<T> sp(sp2, ptr)                          别名构造函数
+
+shared_ptr<T> sp(wp)                                基于一个weak pointer wp创建出一个shared pointer
+shared_ptr<T> sp(move(up))                          基于一个unique_ptr pointer wp创建出一个shared pointer
+
+sp.~shared_ptr()                                    析构函数，调用deleter
+sp = sp2                                            赋值(此后sp将共享sp2的拥有权，放弃其先前所拥有的对象的拥有权)
+sp = move(sp2)                                      sp2将拥有权移交给sp
+sp = move(up)
+sp1.swap(sp2)                                       置换sp1和sp2的pointer和deleter
+swap(sp1, sp2)
+
+sp.reset()                                          放弃拥有权并重新初始化shared pointer
+sp.reset(ptr, del)
+sp.reset(ptr, del, ac)
+
+make_shared(...)
+allocate_shared(ac, ...)
+
+sp.get()                                            返回存储的pointer(通常是被拥有物的地址；若不拥有对象则返回nullptr)
+*sp
+sp->...
+sp.use_count()                                      返回共享对象的拥有者数量(包括sp本身)，如果shared pointer是empty则返回0
+sp.unique()                                         返回 sp是否为唯一拥有者(等价于 sp.use_count() == 1,但可能较快)
+
+if (sp)
+sp1 == sp2
+sp1 != sp2
+sp1 < sp2
+sp1 <= sp2
+sp1 > sp2
+sp1 >= sp2
+
+static_pointer_cast(sp)                             对 sp 执行 static_cast<> 语义
+dynamic_pointer_cast(sp)                            对 sp 执行 dynamic_cast<> 语义
+const_pointer_cast(sp)                              对 sp 执行 const_cast<> 语义
+
+get_deleter(sp)                                     返回deleter的地址(如果有的话), 否则返回nullptr
