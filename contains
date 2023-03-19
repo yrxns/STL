@@ -1,0 +1,37 @@
+几乎所有容器类的共通操作
+
+操作                                           效果
+ContType c                                     default构造函数，建立一个未含任何元素的空容器
+ContType c(c2)                                 copy构造函数
+ContType c = c2
+ContType c(rv)                                 move构造函数
+ContType c = rv
+ContType c(beg, end)                           以[beg, end)区间内的所有元素拷贝为初值
+ContType c(initlist)
+ContType c = initlist
+
+c.~ContType()                                  删除所有元素，释放内存
+c.empty()
+c.size()
+c.max_size()                                   返回元素的最大可能数量
+c1 == c2
+c1 != c2
+c1 < c2
+c1 > c2
+c1 <= c2
+c1 >= c2
+
+c = c2                                         将c2的所有元素赋值给c
+c = rv                                         将 rvalue rv 以 move assign 方式赋予c
+
+c = initlist
+c1.swap(c2)
+swap(c1, c2)
+
+
+c.begin()
+c.end()
+c.cbegin()
+c.cend()
+
+c.clear()                                      移除所有元素，令容器为空
