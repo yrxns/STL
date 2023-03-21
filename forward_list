@@ -1,0 +1,73 @@
+forward list
+
+#include <forward_list>
+
+操作                                           效果
+forward list<Elem> c                                     default构造函数，建立一个空forward list，没有任何元素
+forward list<Elem> c(c2)                                 copy构造函数
+forward list<Elem> c = c2
+forward list<Elem> c(rv)                                 move构造函数
+forward list<Elem> c = rv
+forward list<Elem> c(n)                                 default构造生成一个大小为n的forward list
+forward list<Elem> c(n, elem)                                 建立一个大小为n的forward list,每个元素值都是elem
+forward list<Elem> c(beg, end)                           以[beg, end)区间作为初值
+forward list<Elem> c(initlist)
+forward list<Elem> c = initlist
+
+c.~forward list()                                  销毁所有元素，释放内存
+c.empty()
+c.max_size()                                   返回元素的最大可能数量
+
+c1 == c2
+c1 != c2
+c1 < c2
+c1 > c2
+c1 <= c2
+c1 >= c2
+
+c = c2                                         将c2的所有元素赋值给c
+c = rv                                         将 rvalue rv 以 move assign 方式赋予c
+
+c = initlist
+c.assign(n, elem)                              复制n个elem，赋值给c
+c.assign(beg, end)                            将区间[beg, end)内的元素赋给c
+c.assign(initlist)
+c1.swap(c2)
+swap(c1, c2)
+
+c.front()                                   返回第一元素(不检查是否存在第一元素)
+
+c.begin()
+c.end()
+c.cbegin()
+c.cend()
+c.before_begin()                            返回一个forward iterator指向第一元素的前一位置
+c.cbefore_begin()                           返回一个const forward iterator指向第一元素的前一位置
+
+c.push_front(elem)                            在头部插入elem的一个拷贝
+c.pop_front()                                  移除第一个元素，但不返回它
+c.insert_after(pos, elem)                           在pos的之后插入elem的拷贝，并返回新元素的位置
+c.insert_after(pos, n, elem)                        在pos的之后插入n个elem拷贝，并返回第一个新元素的位置(或返回pos--如果没有新元素的话)
+c.insert_after(pos, beg, end)
+c.insert_after(pos, initlist)
+c.emplace_back(pos, args...)                          附加一个以args为初值的元素于pos之后，并返回新元素的位置
+c.emplace_front(args...)                          附加一个以args为初值的元素于起点，不返回任何东西
+c.erase_after(pos)                                  移除pos之后的元素，不返回任何东西
+c.erase_after(beg, end)                             移除区间[beg, end)内的所有元素，不返回任何东西
+c.remove(val)                                 移除所有其值为val的元素
+c.remove_if(op)                               移除所有"造成op(elem)结果为true"的元素
+c.resize(num)                                  将元素数量改为num(如果size()变大，多出来的新元素都以default构造函数完成初始化)
+c.resize(num, elem)                            将元素数量改为num(如果size()变大，多出来的新元素都是elem的拷贝)
+
+c.clear()                                      移除所有元素，令容器为空
+
+c.unique()                                    如果存在若干相邻而数值相同的元素，就移除重复元素，只留一个
+c.unique(op)                                    如果存在若干相邻元素都使op()的结果为true，就移除重复元素，只留一个
+c.splice_after(pos, c2)                                将c2内的所有元素转移到c之内、迭代器pos之后
+c.splice_after(pos, c2, c2pos)                        将c2内的c2pos所指元素转移到c内的pos所指位置(c和c2可相同)
+c.splice_after(pos, c2, c2beg, c2end)                 将c2区间[c2beg, c2end)内的所有元素转移到c内的pos之后(c和c2可相同)
+c.sort()                                        以operator < 为准则对所有元素排序
+c.sort(op)                                      以op()为准则对所有元素排序
+c.merge(c2)                                     假设c和c2容器都包含op()准则下的已排序(sorted)元素，将c2的全部元素转移到c，并保证合并后的forward list仍为已排序
+c.merge(c2, op)                                 假设c和c2容器都包含已排序(sorted)元素，将c2的全部元素转移到c，并保证合并后的forward list在op()准则下仍为已排序
+c.reverse()                                     将所有元素反序
