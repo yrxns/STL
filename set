@@ -1,0 +1,69 @@
+set
+
+#include <set>
+
+set可为下列形式
+set<Elem>                                 一个set，以less<>(operator <)为排序准则
+set<Elem, op>                             一个set，以op为排序准则
+multiset<Elem>                                 一个multiset，以less<>(operator <)为排序准则
+multiset<Elem, op>                             一个multiset，以op为排序准则
+
+操作                                           效果
+set c                                     default构造函数，建立一个空set/multiset，没有任何元素
+set c(c2)                                 建立一个空set/multiset, 以op为排序准则
+set c(c2)                                 copy构造函数
+set c = c2
+set c(rv)                                 move构造函数
+set c = rv
+set c(beg, end)                           以[beg, end)区间作为初值
+set c(beg, end, op)                           以[beg, end)区间作为初值
+set c(initlist)
+set c = initlist
+
+c.~set()                                  销毁所有元素，释放内存
+c.key_comp()                                  返回"比较准则";
+c.value_comp()                                  返回针对value的"比较准则";
+c.empty()
+c.size()                                       返回目前的元素个数
+c.max_size()                                   返回元素的最大可能数量
+
+c1 == c2
+c1 != c2
+c1 < c2
+c1 > c2
+c1 <= c2
+c1 >= c2
+
+c = c2                                         将c2的所有元素赋值给c
+c = rv                                         将 rvalue rv 以 move assign 方式赋予c
+c = initlist
+
+c = initset
+c1.swap(c2)
+swap(c1, c2)
+
+c.count(val)                              返回"元素值为val"的元素个数
+c.find(val)                              返回"元素值为val"的第一个元素,如果找不到就返回end()
+c.lower_bound(val)                         返回val的第一个可安插的位置，也就是"元素值>=val"的第一个元素位置
+c.upper_bound(val)                         返回val的最后一个可安插的位置，也就是"元素值>val"的第一个元素位置
+c.equal_range(val)                          返回val可被安插的第一个位置和最后一个位置，也就是"元素值==val"的元素区间
+
+c.begin()
+c.end()
+c.cbegin()
+c.cend()
+c.rbegin()
+c.rend()
+c.crbegin()
+c.crend()
+
+c,insert(val)                           安插一个val拷贝，返回新元素的位置，不论是否成功--对set而言
+c,insert(pos, val)                           安插一个val拷贝，返回新元素的位置(pos是个提示，指出安插动作的查找起点。若提示恰当可加快速度)
+c.insert(beg, end)                           将区间[beg, end)内所有元素拷贝安插到c(无返回值)
+c.insert(initset)                            安插初值列initlist内所有元素的一份拷贝(无返回值)
+c.emplace(args...)
+c.emplace_hint(pos, args...)                 pos是提示
+c.erase(val)                                  移除"与val相等"的所有元素，返回被移除的元素个数
+c.erase(pos)                                  移除pos上的元素，无返回值
+c.erase(beg, end)                             移除区间[beg, end)内的所有元素，无返回值
+c.clear()                                      移除所有元素，令容器为空
