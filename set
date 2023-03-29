@@ -10,7 +10,7 @@ multiset<Elem, op>                             一个multiset，以op为排序�
 
 操作                                           效果
 set c                                     default构造函数，建立一个空set/multiset，没有任何元素
-set c(c2)                                 建立一个空set/multiset, 以op为排序准则
+set c(op)                                 建立一个空set/multiset, 以op为排序准则
 set c(c2)                                 copy构造函数
 set c = c2
 set c(rv)                                 move构造函数
@@ -37,8 +37,6 @@ c1 >= c2
 c = c2                                         将c2的所有元素赋值给c
 c = rv                                         将 rvalue rv 以 move assign 方式赋予c
 c = initlist
-
-c = initset
 c1.swap(c2)
 swap(c1, c2)
 

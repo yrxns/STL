@@ -1,0 +1,80 @@
+Unord
+
+#include <unordered_set>
+#include <unordered_map>
+
+操作                                           效果
+Unord c                                     default构造函数，建立一个empty unordered容器，没有任何元素
+Unord c(bnum)                                 建立一个empty unordered容器，内部使用至少bnum个bucket
+Unord c(bnum, hf)                                 建立一个empty unordered容器，内部使用至少bnum个bucket并以hf作为hash function
+Unord c(bnum, hf, cmp)                                 建立一个empty unordered容器，内部使用至少bnum个bucket并以hf作为hash function, 并以cmp作为predicate用来鉴定等价value
+Unord c(c2)                                 copy构造函数
+Unord c = c2
+Unord c(rv)                                 move构造函数
+Unord c = rv
+Unord c(beg, end)                           以[beg, end)区间作为初值
+Unord c(beg, end, bnum)
+Unord c(beg, end, bnum, hf)
+Unord c(beg, end, bnum, hf, cmp)
+Unord c(initlist)
+Unord c = initlist
+
+c.~Unord()                                  销毁所有元素，释放内存
+c.empty()
+c.size()                                       返回目前的元素个数
+c.max_size()                                   返回元素的最大可能数量
+
+c1 == c2
+c1 != c2
+
+c = c2                                         将c2的所有元素赋值给c
+c = rv                                         将 rvalue rv 以 move assign 方式赋予c
+c = initlist
+c1.swap(c2)
+swap(c1, c2)
+
+c.count(val)                              返回"key为val"的元素个数
+c.find(val)                              返回"key为val"的第一个元素,如果找不到就返回end()
+c.equal_range(val)                          返回val可被安插的第一个位置和最后一个位置，也就是"元素值==val"的元素区间
+
+c.begin()
+c.end()
+c.cbegin()
+c.cend()
+c.rbegin()
+c.rend()
+c.crbegin()
+c.crend()
+
+c,insert(val)                           安插一个val拷贝，返回新元素的位置，不论是否成功--对Unord而言
+c,insert(pos, val)                           安插一个val拷贝，返回新元素的位置(pos是个提示，指出安插动作的查找起点。若提示恰当可加快速度)
+c.insert(beg, end)                           将区间[beg, end)内所有元素拷贝安插到c(无返回值)
+c.insert(initlist)                            安插初值列initlist内所有元素的一份拷贝(无返回值)
+c.emplace(args...)
+c.emplace_hint(pos, args...)                 pos是提示
+c.erase(val)                                  移除"与val相等"的所有元素，返回被移除的元素个数
+c.erase(pos)                                  移除pos上的元素，无返回值
+c.erase(beg, end)                             移除区间[beg, end)内的所有元素，无返回值
+c.clear()                                      移除所有元素，令容器为空
+
+c[key]                                   安插一个带着key的元素--如果尚未存在于容器内。返回一个reference指向带着key的元素
+c.at(key)                                返回一个reference指向带着key的元素
+
+
+Unordered容器Unord的所有可能类型
+
+unordered_set<Elem>
+unordered_set<Elem, Hash>
+unordered_set<Elem, Hash, Cmp>
+
+unordered_multiset<Elem>
+unordered_multiset<Elem, Hash>
+unordered_multiset<Elem, Hash, Cmp>
+
+unordered_map<Key, T>
+unordered_map<Key, T, Hash>
+unordered_map<Key, T, Hash, Cmp>
+
+unordered_multimap<Key, T>
+unordered_multimap<Key, T, Hash>
+unordered_multimap<Key, T, Hash, Cmp>

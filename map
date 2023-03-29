@@ -1,0 +1,70 @@
+map
+
+#include <map>
+
+map可为下列形式
+map<key, val>                                 一个map，以less<>(operator <)为排序准则
+map<key, val, op>                             一个map，以op为排序准则
+multimap<key, val>                                 一个multimap，以less<>(operator <)为排序准则
+multimap<key, val, op>                             一个multimap，以op为排序准则
+
+操作                                           效果
+map c                                     default构造函数，建立一个空map/multimap，没有任何元素
+map c(op)                                 建立一个空map/multimap, 以op为排序准则
+map c(c2)                                 copy构造函数
+map c = c2
+map c(rv)                                 move构造函数
+map c = rv
+map c(beg, end)                           以[beg, end)区间作为初值
+map c(beg, end, op)                           以[beg, end)区间作为初值
+map c(initlist)
+map c = initlist
+
+c.~map()                                  销毁所有元素，释放内存
+c.key_comp()                                  返回"比较准则";
+c.value_comp()                                  返回针对value的"比较准则";
+c.empty()
+c.size()                                       返回目前的元素个数
+c.max_size()                                   返回元素的最大可能数量
+
+c1 == c2
+c1 != c2
+c1 < c2
+c1 > c2
+c1 <= c2
+c1 >= c2
+
+c = c2                                         将c2的所有元素赋值给c
+c = rv                                         将 rvalue rv 以 move assign 方式赋予c
+c = initlist
+c1.swap(c2)
+swap(c1, c2)
+
+c.count(val)                              返回"key为val"的元素个数
+c.find(val)                              返回"key为val"的第一个元素,如果找不到就返回end()
+c.lower_bound(val)                         返回"key为val"的第一个可安插的位置，也就是"key>=val"的第一个元素位置
+c.upper_bound(val)                         返回"key为val"的最后一个可安插的位置，也就是"key>val"的第一个元素位置
+c.equal_range(val)                          返回"key为val"的第一个可安插的位置和最后一个可安插位置，也就是"key==val"的元素区间
+
+c.begin()
+c.end()
+c.cbegin()
+c.cend()
+c.rbegin()
+c.rend()
+c.crbegin()
+c.crend()
+
+c,insert(val)                           安插一个val拷贝，返回新元素的位置，不论是否成功--对map而言
+c,insert(pos, val)                           安插一个val拷贝，返回新元素的位置(pos是个提示，指出安插动作的查找起点。若提示恰当可加快速度)
+c.insert(beg, end)                           将区间[beg, end)内所有元素拷贝安插到c(无返回值)
+c.insert(initlist)                            安插初值列initlist内所有元素的一份拷贝(无返回值)
+c.emplace(args...)
+c.emplace_hint(pos, args...)                 pos是提示
+c.erase(val)                                  移除"与val相等"的所有元素，返回被移除的元素个数
+c.erase(pos)                                  移除pos上的元素，无返回值
+c.erase(beg, end)                             移除区间[beg, end)内的所有元素，无返回值
+c.clear()                                      移除所有元素，令容器为空
+
+c[key]                                   安插一个带着key的元素--如果尚未存在于容器内。返回一个reference指向带着key的元素
+c.at(key)                                返回一个reference指向带着key的元素
