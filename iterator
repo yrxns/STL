@@ -74,3 +74,39 @@ void iter_swap(ForwardIterator1 pos1, ForwardIterator2 pos2)    交换迭代器p
 
 
 Input迭代器的种类
+名称                     class名称                      其所调用的函数                      生成函数
+Back inserter            back_insert_iterator           push_back(value)                    back_inserter(cont)
+Front inserter           front_insert_iterator          push_front(value)                   front_inserter(cont)
+General inserter         insert_iterator                insert(pos, value)                  inserter(cont, pos)
+
+
+*iter                   No-op(返回iter)
+iter = value            安插value
+++iter                  No-op(返回iter)
+iter++                  No-op(返回iter)
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Stream(串流)迭代器
+
+ostream迭代器的各项操作
+表达式                                                  效果
+ostream_iterator<T>(ostream)                            为ostream建立一个ostream迭代器
+ostream_iterator<T>(ostream, delim)                     为ostream建立一个ostream迭代器，各元素间以delim为分隔符(请注意delim的类型是 const char*)
+*iter                   No-op(返回iter)
+iter = value            将value写到ostream: ostream << value
+++iter                  No-op(返回iter)
+iter++                  No-op(返回iter)
+
+
+istream迭代器的各项操作
+表达式                                                  效果
+istream_iterator<T>()                                   建立一个end-of-stream迭代器 
+ostream_iterator<T>(istream)                            为istream建立一个迭代器(可能会立刻读取第一个值)
+*iter                                                   返回此前读取的值(如果构造函数并未立刻读取第一个值，则本式执行读取任务)
+iter->member                                            返回此前读取的元素的成员
+++iter                  读取下一个值，并返回其位置
+iter++                  读取下一个值，返回的迭代器指向前一个读取值
+iter1 == iter2          检查iter1和iter2是否相等
+iter1 != iter2          检查iter1和iter2是否不等
