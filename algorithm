@@ -1,0 +1,11 @@
+#include <algorithm>
+
+for_each
+
+UnaryProc for_each(InputIterator beg, InputIterator end, UnaryProc op);
+
+-------------------------------------------------------------------------------------------------------------------------
+                                                    非更异型算法
+元素计数
+difference_type count(InputIterator beg, InputIterator end, const T& value)
+difference_type count_if(InputIterator beg, InputIterator end, UnaryPredicate op)
