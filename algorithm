@@ -7,5 +7,153 @@ UnaryProc for_each(InputIterator beg, InputIterator end, UnaryProc op);
 -------------------------------------------------------------------------------------------------------------------------
                                                     非更异型算法
 元素计数
-difference_type count(InputIterator beg, InputIterator end, const T& value)
-difference_type count_if(InputIterator beg, InputIterator end, UnaryPredicate op)
+difference_type
+count(InputIterator beg, InputIterator end, const T& value)
+
+difference_type
+count_if(InputIterator beg, InputIterator end, UnaryPredicate op)
+
+
+
+最大值和最小值
+ForwardIterator
+min_element(ForwardIterator beg, ForwardIterator end)
+
+ForwardIterator
+min_element(ForwardIterator beg, ForwardIterator end, CompFunc op)
+
+ForwardIterator
+max_element(ForwardIterator beg, ForwardIterator end)
+
+ForwardIterator
+max_element(ForwardIterator beg, ForwardIterator end, CompFunc op)
+
+pair<ForwardIterator, ForwardIterator>
+minmax_element(ForwardIterator beg, ForwardIterator end)
+
+pair<ForwardIterator, ForwardIterator>
+minmax_element(ForwardIterator beg, ForwardIterator end, CompFunc op)
+
+
+
+查找第一个匹配元素
+InputIterator
+find(InputIterator beg, InputIterator end, const T& value)
+
+InputIterator
+find_if(InputIterator beg, InputIterator end, UnaryPredicate op)
+
+InputIterator
+find_if_not(InputIterator beg, InputIterator end, UnaryPredicate op)
+
+
+
+查找前n个连续匹配值
+ForwardIterator
+search_n(ForwardIterator beg, ForwardIterator end, Size count, const T& value)
+
+ForwardIterator
+search_n(ForwardIterator beg, ForwardIterator end, Size count, const T& value, BinaryPredicate op)
+连续count个元素造成 op(elem, value)为true的第一元素位置
+
+
+
+查找第一个子区间
+ForwardIterator
+search(ForwardIterator1 beg, ForwardIterator1 end,
+       ForwardIterator2 searchBeg, ForwardIterator2 searchEnd)
+
+ForwardIterator
+search(ForwardIterator1 beg, ForwardIterator1 end,
+       ForwardIterator2 searchBeg, ForwardIterator2 searchEnd,
+       BinaryPredicate op)
+op(elem, searchElem)
+
+
+
+查找最后一个子区间
+ForwardIterator
+find_end(ForwardIterator1 beg, ForwardIterator1 end,
+       ForwardIterator2 searchBeg, ForwardIterator2 searchEnd)
+
+ForwardIterator
+find_end(ForwardIterator1 beg, ForwardIterator1 end,
+       ForwardIterator2 searchBeg, ForwardIterator2 searchEnd,
+       BinaryPredicate op)
+op(elem, searchElem)
+
+
+
+查找某些元素的第一次出现地点
+InputIterator
+find_first_of(InputIterator beg, InputIterator end,
+              ForwardIterator searchBeg, ForwardIterator searchEnd)
+
+InputIterator
+find_first_of(InputIterator beg, InputIterator end,
+              ForwardIterator searchBeg, ForwardIterator searchEnd,
+              BinaryPredicate op)
+
+
+
+查找两个连续且相等的元素
+ForwardIterator
+adjacent_find(ForwardIterator beg, ForwardIterator end)
+
+ForwardIterator
+adjacent_find(ForwardIterator beg, ForwardIterator end,
+              BinaryPredicate op)
+
+
+
+检验相等性
+bool
+equal(InputIterator beg, InputIterator end,
+      InputIterator cmpBeg)
+
+bool
+equal(InputIterator beg, InputIterator end,
+      InputIterator cmpBeg,
+      BinaryPredicate op)
+op(elem, cmpElem)
+
+
+
+测试不定序之相等性
+bool
+is_permutation(ForwardIterator1 beg1, ForwardIterator1 end1,
+               ForwardIterator2 beg2)
+
+bool
+is_permutation(ForwardIterator1 beg1, ForwardIterator1 end1,
+               ForwardIterator2 beg2,
+               CompFunc op)
+
+
+
+查找第一处不同
+pair<InputIterator1, InputIterator2>
+mismatch(InputIterator1 beg, InputIterator1 end,
+         InputIterator2 cmpBeg)
+
+pair<InputIterator1, InputIterator2>
+mismatch(InputIterator1 beg, InputIterator1 end,
+         InputIterator2 cmpBeg,
+         BinaryPredicate op)
+op(elem, cmpElem)
+
+
+
+检验是否排序(或局部排序)
+bool
+is_sorted(ForwardIterator beg, ForwardIterator end)
+
+bool
+is_sorted(ForwardIterator beg, ForwardIterator end, BinaryPredicate op)
+
+ForwardIterator
+is_sorted_until(ForwardIterator beg, ForwardIterator end)                        //返回[beg, end)区间内第一个破坏排序的元素
+
+ForwardIterator
+is_sorted_until(ForwardIterator beg, ForwardIterator end, BinaryPredicate op)
+op(elem1, elem2)
