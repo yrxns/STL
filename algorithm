@@ -157,3 +157,62 @@ is_sorted_until(ForwardIterator beg, ForwardIterator end)                       
 ForwardIterator
 is_sorted_until(ForwardIterator beg, ForwardIterator end, BinaryPredicate op)
 op(elem1, elem2)
+
+
+
+检验All, Any, 或None
+bool
+all_of(InputIterator beg, InputIterator end, UnaryPredicate op)
+
+bool
+any_of(InputIterator beg, InputIterator end, UnaryPredicate op)
+
+bool
+none_of(InputIterator beg, InputIterator end, UnaryPredicate op)
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+                                                                                更易型算法
+
+复制元素
+OutputIterator
+copy(InputIterator sourceBeg, InputIterator sourceEnd,
+     OutputIterator destBeg)
+
+OutputIterator
+copy_if(InputIterator sourceBeg, InputIterator sourceEnd,
+        OutputIterator destBeg,
+        UnaryPredicate op)
+
+OutputIterator
+copy_n(InputIterator sourceBeg, Size num, OutputIterator destBeg)
+
+BidirectionalIterator2
+copy_backward(BidirectionalIterator1 sourceBeg, BidirectionalIterator1 sourceEnd, BidirectionalIterator2 destEnd)
+
+
+
+搬移元素(Moving Element)
+OutputIterator
+move(InputIterator sourceBeg, InputIterator sourceEnd,
+     OutputIterator destBeg)
+
+BidirectionalIterator2
+move_backward(BidirectionalIterator1 sourceBeg, BidirectionalIterator1 sourceEnd, BidirectionalIterator2 destEnd)
+
+
+
+转换元素(Transforming Element)
+OutputIterator
+transform(InputIterator sourceBeg, InputIterator sourceEnd,
+          OutputIterator destBeg,
+          UnaryFunc op)
+
+
+将两序列的元素结合(Combining Elements of Two Sequences)
+OutputIterator
+transform(InputIterator1 source1Beg, InputIterator1 source1End,
+          InputIterator2 source2Beg,
+          OutputIterator destBeg,
+          BinaryFunc op)
+op(source1Elem, source2Elem)
