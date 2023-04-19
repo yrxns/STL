@@ -216,3 +216,153 @@ transform(InputIterator1 source1Beg, InputIterator1 source1End,
           OutputIterator destBeg,
           BinaryFunc op)
 op(source1Elem, source2Elem)
+
+
+
+互换元素(Swapping Elements)
+ForwardIterator2
+swap_ranges(ForwardIterator1 beg1, ForwardIterator1 end1,
+            ForwardIterator2 beg2)
+
+
+
+赋予相同数值(Assigning the Same Value)
+void
+fill(ForwardIterator beg, ForwardIterator end,
+     const T& newValue)
+
+void
+fill_n(OutputIterator beg, Size num,
+       const T& newValue)
+
+
+
+赋予新生值
+void
+generate(ForwardIterator beg, ForwardIterator end,
+         Func op)
+
+void
+generate_n(OutputIterator beg, Size num,
+           Func op)
+
+
+
+赋予一系列递增值
+void
+iota(ForwardIterator beg, ForwardIterator end,
+     T startValue)
+依序赋值 startValue, startValue+1, startValue+2
+
+
+
+替换序列内的元素
+void
+replace(ForwardIterator beg, ForwardIterator end,
+        const T& oldValue, const T& newValue)
+
+void
+replace_if(ForwardIterator beg, ForwardIterator end,
+           UnaryPredicate op, const T& newValue)
+
+
+
+赋值并替换元素
+OutputIterator
+replace_copy(InputIterator sourceBeg, InputIterator sourceEnd,
+             OutputIterator destBeg,
+             const T& oldValue, const T& newValue)
+
+OutputIterator
+replace_copy_if(InputIterator sourceBeg, InputIterator sourceEnd,
+                OutputIterator destBeg,
+                UnaryPredicate op, const T& newValue)
+
+
+
+移除序列内的元素
+ForwardIterator
+remove(ForwardIterator beg, ForwardIterator end,
+       const T& value)
+
+ForwardIterator
+remove_if(ForwardIterator beg, ForwardIterator end,
+          UnaryPredicate op)
+
+
+
+赋值时一并移除元素
+OutputIterator
+remove_copy(InputIterator sourceBeg, InputIterator sourceEnd,
+            OutputIterator destBeg,
+            const T& value)
+
+OutputIterator
+remove_copy_if(InputIterator sourceBeg, InputIterator sourceEnd,
+               OutputIterator destBeg,
+               UnaryPredicate op)
+
+
+
+移除连续重复元素
+ForwardIterator
+unique(ForwardIterator beg, ForwardIterator end)
+
+ForwardIterator
+unique(ForwardIterator beg, ForwardIterator end,
+       BinaryPredicate op)
+
+
+
+赋值过程中移除重复元素
+OutputIterator
+unique_copy(InputIterator sourceBeg, InputIterator sourceEnd,
+            OutputIterator destBeg)
+
+OutputIterator
+unique_copy(InputIterator sourceBeg, InputIterator sourceEnd,
+            OutputIterator destBeg,
+            BinaryPredicate op)
+
+
+
+反转元素次序
+void
+reverse(BidirectionalIterator beg, BidirectionalIterator end)
+
+OutputIterator
+reverse_copy(BidirectionalIterator sourceBeg, BidirectionalIterator sourceEnd,
+             OutputIterator destBeg)
+
+
+
+旋转序列内的元素
+ForwardIterator
+rotate(ForwardIterator beg, ForwardIterator newBeg, ForwardIterator end)
+
+
+
+复制并同时旋转元素
+OutputIterator
+rotate_copy(ForwardIterator sourceBeg, ForwardIterator newBeg,
+            ForwardIterator sourceEnd,
+            OutputIterator destBeg)
+
+
+
+将元素向前搬
+ForwardIterator
+partition(ForwardIterator beg, ForwardIterator end,
+          UnaryPredicate op)
+
+BidirectionalIterator
+stable_partition(BidirectionalIterator beg, BidirectionalIterator end,
+                 UnaryPredicate op)
+
+
+
+划分为两个子区间
+pair<OutputIterator1, OutputIterator2>
+partition_copy(InputIterator sourceBeg, InputIterator sourceEnd,
+               OutputIterator1 destTrueBeg, OutputIterator2 destFalseBeg,
+               UnaryPredicate op)
