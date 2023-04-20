@@ -366,3 +366,93 @@ pair<OutputIterator1, OutputIterator2>
 partition_copy(InputIterator sourceBeg, InputIterator sourceEnd,
                OutputIterator1 destTrueBeg, OutputIterator2 destFalseBeg,
                UnaryPredicate op)
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+                                                                                    排序算法
+
+对所有元素排序
+void
+sort(RandomAccessIterator beg, RandomAccessIterator end)
+
+void
+sort(RandomAccessIterator beg, RandomAccessIterator end, BinaryPredicate op)
+
+void
+stable_sort(RandomAccessIterator beg, RandomAccessIterator end)
+
+void
+stable_sort(RandomAccessIterator beg, RandomAccessIterator end, BinaryPredicate op)
+
+
+
+局部排序
+void
+partial_sort(RandomAccessIterator beg, RandomAccessIterator sortEnd,
+             RandomAccessIterator end)
+
+void
+partial_sort(RandomAccessIterator beg, RandomAccessIterator sortEnd,
+             RandomAccessIterator end, BinaryPredicate op)
+
+RandomAccessIterator
+partial_sort_copy(InputIterator sourceBeg, InputIterator sourceEnd,
+                  RandomAccessIterator destBeg, RandomAccessIterator destEnd)
+
+RandomAccessIterator
+partial_sort_copy(InputIterator sourceBeg, InputIterator sourceEnd,
+                  RandomAccessIterator destBeg, RandomAccessIterator destEnd,
+                  BinaryPredicate op)
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+                                                                        已排序区间算法
+
+
+查找某个元素是否存在
+bool
+binary_search(ForwardIterator beg, ForwardIterator end, const T& value)
+
+bool
+binary_search(ForwardIterator beg, ForwardIterator end, const T& value,
+              BinaryPredicate op)
+
+
+
+检查数个元素是否存在
+bool
+includes(InputIterator1 beg, InputIterator1 end,
+         InputIterator2 searchBeg, InputIterator2 searchEnd)
+
+bool
+includes(InputIterator1 beg, InputIterator1 end,
+         InputIterator2 searchBeg, InputIterator2 searchEnd,
+         BinaryPredicate op)
+
+
+
+查找第一个或最后一个可能位置
+ForwardIterator
+lower_bound(ForwardIterator beg, ForwardIterator end, const T& value)
+
+ForwardIterator
+lower_bound(ForwardIterator beg, ForwardIterator end, const T& value,
+            BinaryPredicate op)
+
+ForwardIterator
+upper_bound(ForwardIterator beg, ForwardIterator end, const T& value)
+
+ForwardIterator
+upper_bound(ForwardIterator beg, ForwardIterator end, const T& value,
+            BinaryPredicate op)
+
+
+
+查找第一个和最后一个可能位置所形成的区间
+pair<ForwardIterator, ForwardIterator>
+equal_range(ForwardIterator beg, ForwardIterator end, const T& value)
+
+pair<ForwardIterator, ForwardIterator>
+equal_range(ForwardIterator beg, ForwardIterator end, const T& value,
+            BinaryPredicate op)
