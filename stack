@@ -1,0 +1,7 @@
+stack
+
+#include <stack>
+
+push()        将一个元素放入stack内
+top()         弹出顶部元素
+pop()         移除顶部元素
