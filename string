@@ -1,0 +1,38 @@
+string
+
+#include <string>
+
+
+类型定义
+string::traits_type
+string::value_type
+string::size_type
+string::difference_type
+string::reference
+string::const_reference
+string::pointer
+string::const_pointer
+string::iterator
+string::const_iterator
+string::reverse_iterator
+string::const_reverse_iterator
+
+
+
+创建、复制、销毁(create, copy, and destroy)
+string::string()
+string::string(const string& str)
+string::string(string&& str)
+string::string(const string& str, size_type str_idx)
+string::string(const string& str, size_type str_idx, size_type str_num)
+string::string(const char* cstr)
+string::string(const char* cstr, size_type chars_len)
+string::string(size_type num, char c)
+string::string(InputIterator beg, InputIterator end)
+string::string(initializer-list)
+
+string::~string()
+
+
+
+大小和容量(size and capacity)
