@@ -456,3 +456,64 @@ equal_range(ForwardIterator beg, ForwardIterator end, const T& value)
 pair<ForwardIterator, ForwardIterator>
 equal_range(ForwardIterator beg, ForwardIterator end, const T& value,
             BinaryPredicate op)
+
+
+两个已排序集合的总和
+OutputIterator
+merge(InputIterator source1Beg, InputIterator source1End,
+      InputIterator source2Beg, InputIterator source2End,
+      OutputIterator destBeg)
+
+OutputIterator
+merge(InputIterator source1Beg, InputIterator source1End,
+      InputIterator source2Beg, InputIterator source2End,
+      OutputIterator destBeg, BinaryPredicate op)
+
+
+
+两个已排序集合的并集
+OutputIterator
+set_union(InputIterator source1Beg, InputIterator source1End,
+      InputIterator source2Beg, InputIterator source2End,
+      OutputIterator destBeg)
+
+OutputIterator
+set_union(InputIterator source1Beg, InputIterator source1End,
+      InputIterator source2Beg, InputIterator source2End,
+      OutputIterator destBeg, BinaryPredicate op)
+
+
+
+两个已排序集合的交集
+OutputIterator
+set_intersection(InputIterator source1Beg, InputIterator source1End,
+      InputIterator source2Beg, InputIterator source2End,
+      OutputIterator destBeg)
+
+OutputIterator
+set_intersection(InputIterator source1Beg, InputIterator source1End,
+      InputIterator source2Beg, InputIterator source2End,
+      OutputIterator destBeg, BinaryPredicate op)
+
+
+
+两个已排序集合的差集
+OutputIterator
+set_difference(InputIterator source1Beg, InputIterator source1End,
+      InputIterator source2Beg, InputIterator source2End,
+      OutputIterator destBeg)
+
+OutputIterator
+set_difference(InputIterator source1Beg, InputIterator source1End,
+      InputIterator source2Beg, InputIterator source2End,
+      OutputIterator destBeg, BinaryPredicate op)
+
+OutputIterator
+set_symmetric_difference(InputIterator source1Beg, InputIterator source1End,
+      InputIterator source2Beg, InputIterator source2End,
+      OutputIterator destBeg)
+
+OutputIterator
+set_symmetric_difference(InputIterator source1Beg, InputIterator source1End,
+      InputIterator source2Beg, InputIterator source2End,
+      OutputIterator destBeg, BinaryPredicate op)
