@@ -71,4 +71,43 @@ int string::compare(size_type idx, size_type len, const char* chars, size_type c
 
 
 字符访问
+char& string::operator[](size_type idx)
+const char& string::operator[](size_type idx) const
+char& string::at(size_type idx)
+const char& string::at(size_type idx) const
+char& string::front()
+const char& string::front() const
+char& string::back()
+const char& string::back() const
+
+
+
+产生 C-String 和字符数组(character array)
+const char* string::c_str() const
+const char* string::data() const
+size_type string::copy(char* buf, size_type buf_size) const
+size_type string::copy(char* buf, size_type buf_size, size_type idx) const
+
+
+
+赋值
+string& string::operator=(const string& str)
+string& string::assign(const string& str)
+string& string::operator=(string&& str)
+string& string::assign(string&& str)
+string& string::assign(const string& str, size_type str_idx, size_type str_num)
+string& string::operator=(const char* cstr)
+string& string::assign(const char* cstr)
+string& string::assign(const char* chars, size_type chars_len)
+string& string::operator=(char c)
+string& string::assign(size_type num, char c)
+string& string::assign(InputIterator beg, InputIterator end)
+string& string::operator=(initializer-list)
+string& string::assign(initializer-list)
+void string::swap(string& str)
+void swap(string& str1, string& str2)
+
+
+
+添加字符
 
