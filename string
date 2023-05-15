@@ -171,4 +171,12 @@ string& string::replace(const_iterator beg, const_iterator end, initializer-list
 
 
 查找单一字符(find a character)
+size_type string::find(char c) const
+size_type string::find(char c, size_type idx) const
+size_type string::rfind(char c) const
+size_type string::rfind(char, size_type idx) const
+
+
+
+查找子字符串(find a substring)
 
