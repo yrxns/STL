@@ -146,3 +146,29 @@ string& string::erase(size_type idx, size_type len)
 iterator string::erase(const_iterator pos)
 iterator string::erase(const_iterator beg, const_iterator end)
 void string::pop_back()
+
+
+
+改变大小
+void string::resize(size_type num)
+void string::resize(size_type num, char c)
+
+
+
+替换字符(replacing character)
+string& string::replace(size_type idx, size_type len, const string& str)
+string& string::replace(begin_iterator beg, begin_iterator end, const string& str)
+string& string::replace(size_type idx, size_type len, const string& str, size_type str_idx, size_type str_num)
+string& string::replace(size_type idx, size_type len, const char* cstr)
+string& string::replace(const_iterator beg, const_iterator end, const char* cstr)
+string& string::replace(size_type idx, size_type len, const char* chars, size_type chars_len)
+string& string::replace(const_iterator beg, const_iterator end, const char* chars, size_type chars_len)
+string& string::replace(size_type idx, size_type len, size_type num, char c)
+string& string::replace(const_iterator beg, const_iterator end, size_type num, char c)
+string& string::replace(const_iterator beg, const_iterator end, InputIterator newBeg, InputIterator newEnd)
+string& string::replace(const_iterator beg, const_iterator end, initializer-list)
+
+
+
+查找单一字符(find a character)
+
