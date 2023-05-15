@@ -110,4 +110,39 @@ void swap(string& str1, string& str2)
 
 
 添加字符
+string& string::operator+=(const string& str)
+string& string::append(const string& str)
+string& string::append(const string& str, size_type str_idx, size_type str_num)
+string& string::operator+=(const char* cstr)
+string& string::append(const char* cstr)
+string& string::append(const char* chars, size_type chars_len)
+string& string::append(size_type num, char c)
+string& string::operator+=(char c)
+void string::push_back(char c)
+string& string::append(InputIterator beg, InputIterator end)
+string& string::operator+=(initializer-list)
+void string::append(initializer-list)
 
+
+
+安插字符
+string& string::insert(size_type idx, const string& str)
+string& string::insert(size_type idx, const string& str, size_type str_idx, size_type str_num)
+string& string::insert(size_type idx, const char* cstr)
+string& string::insert(size_type idx, const char* chars, size_type chars_len)
+string& string::insert(size_type idx, size_type num, char c)
+iterator string::insert(const_iterator pos, size_type num, char c)
+iterator string::insert(const_iterator pos, char c)
+iterator string::insert(const_iterator pos, InputIterator beg, InputIterator end)
+iterator string::insert(const_iterator pos, initializer-list)
+
+
+
+抹除字符(erasing character)
+void string::clear()
+string& string::erase()
+string& string::erase(size_type idx)
+string& string::erase(size_type idx, size_type len)
+iterator string::erase(const_iterator pos)
+iterator string::erase(const_iterator beg, const_iterator end)
+void string::pop_back()
