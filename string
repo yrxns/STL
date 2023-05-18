@@ -260,3 +260,42 @@ string operator+(char c, string&& str)
 I/O函数
 ostream& operator<<(ostream&& strm, const string& str)
 istream& operator>>(istream&& strm, string& str)
+
+istream getline(istream& strm, string& str)
+istream getline(istream&& strm, string& str)
+istream getline(istream& strm, string& str, char delim)
+istream getline(istream&& strm, string& str, char delim)
+
+
+
+数值转换(numeric conversion)
+int stoi(const string& str, size_t* idxRet = nullptr, int base = 10)
+int stol(const string& str, size_t* idxRet = nullptr, int base = 10)
+int stoul(const string& str, size_t* idxRet = nullptr, int base = 10)
+int stoll(const string& str, size_t* idxRet = nullptr, int base = 10)
+int stoull(const string& str, size_t* idxRet = nullptr, int base = 10)
+int stof(const string& str, size_t* idxRet = nullptr, int base = 10)
+int stod(const string& str, size_t* idxRet = nullptr, int base = 10)
+int stold(const string& str, size_t* idxRet = nullptr, int base = 10)
+
+string to_string(Type val)
+wstring to_wstring(Type val)
+
+
+
+生产iterator
+iterator string::begin()
+const_iterator string::begin() const
+const_iterator string::cbegin()
+
+iterator string::end()
+const_iterator string::end() const
+const_iterator string::cend()
+
+iterator string::rbegin()
+const_iterator string::rbegin() const
+const_iterator string::rcbegin()
+
+iterator string::rend()
+const_iterator string::rend() const
+const_iterator string::rcend()
