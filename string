@@ -234,3 +234,29 @@ size_type string::find_last_of(char c) const
 size_type string::find_last_of(char c, size_type idx) const
 size_type string::find_last_not_of(char c) const
 size_type string::find_last_not_of(char c, size_type idx) const
+
+
+
+子字符串及字符串接合
+string string::substr() const
+string string::substr(size_type idx) const
+string string::substr(size_type idx, size_type len) const
+
+string operator+(const string& str1, const string& str2)
+string operator+(string&& str1, string&& str2)
+string operator+(string&& str1, const string& str2)
+string operator+(const string& str1, string&& str2)
+string operator+(const string& str, const char* cstr)
+string operator+(string&& str, const char* cstr)
+string operator+(const char* cstr, const string& str)
+string operator+(const char* cstr, string&& str)
+string operator+(const string&, char c)
+string operator+(string&& str, char c)
+string operator+(char c, const string& str)
+string operator+(char c, string&& str)
+
+
+
+I/O函数
+ostream& operator<<(ostream&& strm, const string& str)
+istream& operator>>(istream&& strm, string& str)
